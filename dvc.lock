@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - path: get_data.py
+      hash: md5
+      md5: 48035cae186ef0afaf62e42533a7d987
+      size: 368
+    outs:
+    - path: data/penguins_clean.csv
+      hash: md5
+      md5: 462e712947094cbbd67df51288630427
+      size: 14950
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/penguins_clean.csv
+      hash: md5
+      md5: 462e712947094cbbd67df51288630427
+      size: 14950
+    - path: train.py
+      hash: md5
+      md5: 0e6df15fe14d29e99e2a25757568db0b
+      size: 1656
+    outs:
+    - path: outputs/confusion_matrix.png
+      hash: md5
+      md5: f17ec813e4a34724f6146c413bdffa8a
+      size: 15866
+    - path: outputs/metrics.json
+      hash: md5
+      md5: a473b358731950488a4d0734713a0ac5
+      size: 31
