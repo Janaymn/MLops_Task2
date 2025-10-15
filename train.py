@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, confusion_matrix
 import json
 import seaborn as sns
@@ -29,7 +29,7 @@ y = df.iloc[:, -1]
 print("Data split into X and y")
 
 # Train model
-model = LogisticRegression(random_state=42, max_iter=1000)
+model = SVC(random_state=42)
 model.fit(X, y)
 print("Model trained successfully")
 
